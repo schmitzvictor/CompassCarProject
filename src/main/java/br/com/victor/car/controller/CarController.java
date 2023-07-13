@@ -3,6 +3,7 @@ package br.com.victor.car.controller;
 import br.com.victor.car.entity.Car;
 import br.com.victor.car.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -11,13 +12,14 @@ public class CarController {
 
     @Autowired
     CarService carService;
-    @GetMapping("/get")
-    public String get(){
-        return carService.getString();
+    @GetMapping("/get/{idChassi}")
+    public ResponseEntity<Car> FindByidChassi(@PathVariable("idChassi") Long idChassi){
+        Car entity = carService.carFindById(idChassi);
+        return ResponseEntity.ok(entity);
     }
 
     @PostMapping("/post")
-    public String post(@RequestBody Car car){
-        return car.toString();
+    public Car post(@RequestBody Car car){
+        return carService.saveCar(car);
     }
 }

@@ -11,11 +11,23 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+
     private long idChassi;
     private String name;
     private String brand;
     private String color;
     private String fabricationYear;
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "idChassi=" + idChassi +
+                ", name='" + name + '\'' +
+                ", brand='" + brand + '\'' +
+                ", color='" + color + '\'' +
+                ", fabricationYear='" + fabricationYear + '\'' +
+                '}';
+    }
 
     public long getIdChassi() {
         return idChassi;
