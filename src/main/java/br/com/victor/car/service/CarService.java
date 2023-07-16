@@ -5,10 +5,10 @@ import br.com.victor.car.entity.Car;
 import br.com.victor.car.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import org.springframework.validation.annotation.Validated;
 
 @Service
+@Validated
 public class CarService {
 
     private final CarRepository carRepository;
